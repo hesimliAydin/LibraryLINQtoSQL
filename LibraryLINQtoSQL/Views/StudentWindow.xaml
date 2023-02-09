@@ -7,6 +7,21 @@
         mc:Ignorable="d"
         Title="StudentWindow" Height="450" Width="800">
     <Grid>
+        <Image
+             Source="/Image/library.jpg" Stretch="Fill">
+
+        </Image>
+        <Button Height="60"
+                    Width="300"
+                    Background="Black"
+                    Content="Show All Books"
+                    Foreground="White"
+                    FontSize="30"
+                    FontFamily="Georgia"
+                    Command="{Binding ShowAllCommand}"
+                    >
+
+        </Button>
         
     </Grid>
 </Window>

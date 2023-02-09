@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LibraryLINQtoSQL.Commands;
+using LibraryLINQtoSQL.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,14 @@ namespace LibraryLINQtoSQL
     /// </summary>
     public partial class MainWindow : Window
     {
+
+       
         public MainWindow()
         {
             InitializeComponent();
+
+            var vm=new MainViewModel();
+            this.DataContext = vm;
         }
     }
 }
