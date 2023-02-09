@@ -1,0 +1,69 @@
+﻿<Window x:Class="LibraryLINQtoSQL.Views.LibrarianWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LibraryLINQtoSQL.Views"
+        mc:Ignorable="d"
+        Title="LibrarianWindow" Height="450" Width="800">
+    <Grid>
+        <Image
+             Source="/Image/library.jpg" Stretch="Fill">
+
+        </Image>
+
+
+        <Button Height="60"
+                    Width="300"
+                    Background="Black"
+                    Content="Show All Books"
+                    Foreground="White"
+                    FontSize="30"
+                    FontFamily="Georgia"
+                    Command="{Binding ShowAllBooksCommand}"
+                    >
+
+        </Button>
+
+        <Button Height="60"
+                    Width="300"
+                    Background="Black"
+                    Content="Delete Book"
+                    Foreground="White"
+                    FontSize="30"
+                    FontFamily="Georgia"
+                    Margin="250,-40,250,90"
+                    Command="{Binding DeleteBookCommand}"
+                    >
+
+        </Button>
+
+        <Button Height="60"
+                    Width="300"
+                    Background="Black"
+                    Content="Update Book"
+                    Foreground="White"
+                    FontSize="30"
+                    FontFamily="Georgia"
+                    Margin="250,223,250,90"
+                    Command="{Binding UpdateBookCommand}"
+                    >
+
+        </Button>
+
+        <Button Height="60"
+                    Width="300"
+                    Background="Black"
+                    Content="Add New Book"
+                    Foreground="White"
+                    FontSize="30"
+                    FontFamily="Georgia"
+                    Margin="250,-175,250,90"
+                    Command="{Binding AddNewBookCommand}"
+                    >
+
+        </Button>
+
+
+    </Grid>
+</Window>
