@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LibraryLINQtoSQL.Abstractions
 {
-    public interface BookRepository
+    public interface IBookRepository
     {
 
     }

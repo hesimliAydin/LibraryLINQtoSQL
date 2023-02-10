@@ -56,6 +56,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="DataAccess\BookRepository.cs" />
     <Compile Include="ViewModels\AddBookViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\DeleteBookViewModel.cs" />
@@ -85,7 +86,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Abstractions\BookRepository.cs" />
+    <Compile Include="Abstractions\IBookRepository.cs" />
     <Compile Include="Abstractions\IRepository.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>

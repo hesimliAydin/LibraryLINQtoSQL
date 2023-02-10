@@ -6,7 +6,31 @@
         xmlns:local="clr-namespace:LibraryLINQtoSQL.Views"
         mc:Ignorable="d"
         Title="AddBookWindow" Height="450" Width="800">
+
     <Grid>
         
+    <Image
+             Source="/Image/library.jpg" Stretch="Fill">
+
+    </Image>
+
+        <StackPanel Orientation="Horizontal" Height="250">
+            <TextBlock Text="Enter BookName : " Foreground="Black" FontSize="40" Margin="120,50,0,0"></TextBlock>
+            <TextBox FontSize="20" Name="NameTxtb" Height="35" Margin="55,-80,0,8" Width="200"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="250">
+            <TextBlock Text="Enter Book ID : " Foreground="Black" FontSize="40" Margin="120,0,0,0"></TextBlock>
+            <TextBox FontSize="20" Name="IdTxtb" Height="35" Margin="111,-185,0,8" Width="200"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="250">
+            <TextBlock Text="Enter Book Page : " Foreground="Black" FontSize="40" Margin="120,100,0,0"></TextBlock>
+            <TextBox FontSize="20" Name="PagesTxtb" Height="35" Margin="65,20,0,8" Width="150"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Height="250">
+            <TextBlock Text="Enter Book Quantity : " Foreground="Black" FontSize="40" Margin="120,150,0,0"></TextBlock>
+            <TextBox FontSize="20" Name="QuantityTxtb" Height="35" Margin="0,115,0,8" Width="150"></TextBox>
+        </StackPanel>
+        <Button Command="{Binding AddCommand}" Width="200" Height="50" Margin="0,250,0,0" FontFamily="Georgia"
+                Foreground="White" Background="Black" Content="Add New Book" FontSize="25"></Button>
     </Grid>
 </Window>
