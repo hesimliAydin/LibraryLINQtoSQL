@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace LibraryLINQtoSQL.Views
 {
     /// <summary>
-    /// Interaction logic for DeleteBookWindow.xaml
+    /// Interaction logic for UpdateBook.xaml
     /// </summary>
-    public partial class DeleteBookWindow : Window
+    public partial class UpdateBook : Window
     {
-        public DeleteBookWindow()
+        public UpdateBook()
         {
             InitializeComponent();
         }

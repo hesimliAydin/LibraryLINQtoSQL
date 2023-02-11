@@ -56,25 +56,52 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Abstractions\IAuthorsRepositories.cs" />
+    <Compile Include="Abstractions\ICategoriesRepositories.cs" />
+    <Compile Include="Abstractions\IPressRepositories.cs" />
+    <Compile Include="Abstractions\IThemesRepositories.cs" />
+    <Compile Include="DataAccess\AuthorRepositories.cs" />
     <Compile Include="DataAccess\BookRepository.cs" />
+    <Compile Include="DataAccess\CategoriesRepositories.cs" />
+    <Compile Include="DataAccess\PressRepositories.cs" />
+    <Compile Include="DataAccess\ThemeRepositories.cs" />
     <Compile Include="ViewModels\AddBookViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\DeleteBookViewModel.cs" />
+    <Compile Include="ViewModels\EditBookViewModel.cs" />
     <Compile Include="ViewModels\LibrarianWindowViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\ShowAllBooksViewModel.cs" />
     <Compile Include="ViewModels\StudentWindowViewModel.cs" />
+    <Compile Include="ViewModels\UpdateBookViewModel.cs" />
+    <Compile Include="Views\DeleteBook.xaml.cs">
+      <DependentUpon>DeleteBook.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditBook.xaml.cs">
+      <DependentUpon>EditBook.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ShowAllBooksWindow.xaml.cs">
       <DependentUpon>ShowAllBooksWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\StudentWindow.xaml.cs">
       <DependentUpon>StudentWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\UpdateBook.xaml.cs">
+      <DependentUpon>UpdateBook.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Dictonaries\Dictonaries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AddBookWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\DeleteBookWindow.xaml">
+    <Page Include="Views\DeleteBook.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EditBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -101,9 +128,6 @@
     <Compile Include="Views\AddBookWindow.xaml.cs">
       <DependentUpon>AddBookWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\DeleteBookWindow.xaml.cs">
-      <DependentUpon>DeleteBookWindow.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\LibrarianWindow.xaml.cs">
       <DependentUpon>LibrarianWindow.xaml</DependentUpon>
     </Compile>
@@ -116,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\StudentWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UpdateBook.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,6 +187,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Image\library.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\icons8-go-back-64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\icons8-book-50.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

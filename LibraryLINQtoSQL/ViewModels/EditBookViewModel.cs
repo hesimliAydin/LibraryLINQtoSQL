@@ -1,50 +1,46 @@
-﻿using LibraryLINQtoSQL.Abstractions;
-using LibraryLINQtoSQL.Commands;
+﻿using LibraryLINQtoSQL.Commands;
 using LibraryLINQtoSQL.DataAccess;
-using LibraryLINQtoSQL.Views;
 using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
 
 namespace LibraryLINQtoSQL.ViewModels
 {
-    public class AddBookViewModel : BaseViewModel
+    public class EditBookViewModel:BaseViewModel
     {
         public RelayCommand BackCommand { get; set; }
-        public RelayCommand AddBookCommand { get; set; }
+        public RelayCommand SaveChangesCommand { get; set; }
 
-        private ObservableCollection<Author> authors;
+        private List<Author> authors;
 
-        public ObservableCollection<Author> Authors
+        public List<Author> Authors
         {
             get { return authors; }
             set { authors = value; OnPropertyChanged(); }
         }
 
-        private ObservableCollection<Theme> themes;
+        private List<Theme> themes;
 
-        public ObservableCollection<Theme> Themes
+        public List<Theme> Themes
         {
             get { return themes; }
             set { themes = value; OnPropertyChanged(); }
         }
 
-        private ObservableCollection<Category> categories;
+        private List<Category> categories;
 
-        public ObservableCollection<Category> Categories
+        public List<Category> Categories
         {
             get { return categories; }
             set { categories = value; OnPropertyChanged(); }
         }
 
-        private ObservableCollection<Press> presses;
+        private List<Press> presses;
 
-        public ObservableCollection<Press> Presses
+        public List<Press> Presses
         {
             get { return presses; }
             set { presses = value; OnPropertyChanged(); }
@@ -60,49 +56,60 @@ namespace LibraryLINQtoSQL.ViewModels
         public int CategoryIndex { get; set; }
         public int PressIndex { get; set; }
 
-        public AddBookViewModel()
+        public EditBookViewModel(Book book)
         {
-            var author=new AuthorRepositories();
+            var author = new AuthorRepositories();
             Authors = author.GetAllData();
-            var theme=new ThemeRepositories();
+            var theme = new ThemeRepositories();
             Themes = theme.GetAllData();
-            var categorie=new CategoriesRepositories();
+            var categorie = new CategoriesRepositories();
             Categories = categorie.GetAllData();
-            var press=new PressRepositories();
+            var press = new PressRepositories();
             Presses = press.GetAllData();
+
+            BookName = book.Name;
+            Pages = book.Pages.ToString();
+            YearPress = book.YearPress.ToString();
+            Comment = book.Comment;
+            Quantity = book.Quantity.ToString();
+            AuthorIndex = Authors.IndexOf(book.Author);
+            ThemeIndex = Themes.IndexOf(book.Theme);
+            CategoryIndex = Categories.IndexOf(book.Category);
+            PressIndex = Presses.IndexOf(book.Press);
 
             BackCommand = new RelayCommand((b) =>
             {
                 App.ExecuteBackCommand();
             });
 
-
-
-            AddBookCommand = new RelayCommand((b) =>
+            SaveChangesCommand = new RelayCommand((b) =>
             {
                 if (AuthorIndex == -1 || ThemeIndex == -1 || CategoryIndex == -1 || PressIndex == -1
-                 || BookName.Trim() == String.Empty || Pages.Trim() == string.Empty || YearPress.Trim() == string.Empty
-                 || Comment.Trim() == String.Empty | Quantity.Trim() == string.Empty)
+                 || string.IsNullOrEmpty(BookName) || string.IsNullOrEmpty(Pages) || string.IsNullOrEmpty(YearPress)
+                 || string.IsNullOrEmpty(Comment) || string.IsNullOrEmpty(Quantity))
                 {
                     MessageBox.Show("Please, fill form completely!");
                     return;
                 }
+
                 Book newBook = new Book()
                 {
-                    Id = theme.GetAllData().Max(x => x.Id) + 1,
+                    Id = book.Id,
                     Name = BookName,
                     Pages = int.Parse(this.Pages.Trim()),
                     YearPress = int.Parse(this.YearPress.Trim()),
                     Quantity = int.Parse(this.Quantity.Trim()),
+                    Comment = this.Comment,
                     Id_Author = Authors[AuthorIndex].Id,
                     Id_Themes = Themes[ThemeIndex].Id,
                     Id_Category = Categories[CategoryIndex].Id,
                     Id_Press = Presses[PressIndex].Id
                 };
-                var book = new BookRepository();
-                book.AddData(newBook);
+
+                var books = new BookRepository();
+                books.UpdateData(newBook);
+                MessageBox.Show("Book was updated successfully");
                 App.ExecuteBackCommand();
-                MessageBox.Show("New book was added successfully");
             });
         }
     }
