@@ -18,8 +18,11 @@ namespace LibraryLINQtoSQL.ViewModels
         {
             LibrarianCommand = new RelayCommand(l =>
             {
-                var lib_window = new LibrarianWindow();
-                lib_window.ShowDialog();
+                var libWindow = new LibrarianWindow();
+                var libViewModel=new LibrarianWindowViewModel();
+                libWindow.DataContext = libViewModel;
+                libWindow.Show();
+                
             });
 
 

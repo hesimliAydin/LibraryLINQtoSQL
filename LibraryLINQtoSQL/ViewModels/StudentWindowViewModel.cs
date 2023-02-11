@@ -13,27 +13,20 @@ namespace LibraryLINQtoSQL.ViewModels
 {
     public class StudentWindowViewModel:BaseViewModel
     {
-        private readonly IRepository<Book> bookRepo;
-
-        private ObservableCollection<Book> allBooks;
-
-        public ObservableCollection<Book> AllBooks
-        {
-            get { return allBooks; }
-            set { allBooks = value; OnPropertyChanged();  }
-        }
+        
 
         public RelayCommand ShowAllCommand { get; set; }
 
-        public StudentWindowViewModel(IRepository<Book> repository)
+        public StudentWindowViewModel()
         {
-            bookRepo= repository;
+            
 
             ShowAllCommand = new RelayCommand(s =>
             {
-                repository= bookRepo.GetAllData();
-                var show = new ShowAllBooksWindow();
-                show.Show();
+                var allBooks = new ShowAllBooksWindow();
+                var allBooksViewModel = new ShowAllBooksViewModel();
+                allBooks.DataContext= allBooksViewModel;
+                App.ChangePage(allBooks);
             });
         }
 

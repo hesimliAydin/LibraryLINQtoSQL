@@ -2,6 +2,7 @@
 using LibraryLINQtoSQL.DataAccess;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,33 +15,33 @@ namespace LibraryLINQtoSQL.ViewModels
         public RelayCommand BackCommand { get; set; }
         public RelayCommand SaveChangesCommand { get; set; }
 
-        private List<Author> authors;
+        private ObservableCollection<Author> authors;
 
-        public List<Author> Authors
+        public ObservableCollection<Author> Authors
         {
             get { return authors; }
             set { authors = value; OnPropertyChanged(); }
         }
 
-        private List<Theme> themes;
+        private ObservableCollection<Theme> themes;
 
-        public List<Theme> Themes
+        public ObservableCollection<Theme> Themes
         {
             get { return themes; }
             set { themes = value; OnPropertyChanged(); }
         }
 
-        private List<Category> categories;
+        private ObservableCollection<Category> categories;
 
-        public List<Category> Categories
+        public ObservableCollection<Category> Categories
         {
             get { return categories; }
             set { categories = value; OnPropertyChanged(); }
         }
 
-        private List<Press> presses;
+        private ObservableCollection<Press> presses;
 
-        public List<Press> Presses
+        public ObservableCollection<Press> Presses
         {
             get { return presses; }
             set { presses = value; OnPropertyChanged(); }
